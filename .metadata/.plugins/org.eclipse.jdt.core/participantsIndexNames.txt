@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\jspStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2536477195.index
+\day1210\src\main\java
+C:\jspStudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\821668228.index
+\WebMarket\src\main\java
