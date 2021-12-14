@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.sist.vo.Product"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.sist.vo.MemberVO"/>
+    <fullyQualifiedTypeName name="com.sist.dao.MemberDAO"/>
+</qualifiedTypeNameHistroy>
