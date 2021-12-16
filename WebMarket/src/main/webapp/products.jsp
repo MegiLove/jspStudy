@@ -1,12 +1,13 @@
+<%@page import="com.sist.dao.ProductRepository"%>
 <%@page import="com.sist.vo.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -21,15 +22,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:useBean id="dao" class="com.sist.dao.ProductRepository"/>
+	
+	
 	<%
+		ProductRepository dao = ProductRepository.getInstance();
 		ArrayList<Product> list = dao.getAllProducts();
 	%>
 	
 	<jsp:include page="menu.jsp"/>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">»óÇ° ¸ñ·Ï</h1>
+			<h1 class="display-3">ìƒí’ˆ ëª©ë¡</h1>
 		</div>
 	</div>
 	
@@ -39,10 +42,12 @@
 				for(Product p:list){
 					%>
 						<div class="col-md-4">
+							<img src="resources/images/<%=p.getFilename()%>"
+							style="width: 100%;">
 							<h3><%= p.getPname() %> </h3>
 							<p><%= p.getDescription() %> </p>
-							<p><%= p.getUnitPrice() %>¿ø </p>
-							<p><a role="button" class="btn btn-secondary" href="product.jsp?id=<%=p.getProductId()%>">»ó¼¼ Á¤º¸</a></p>
+							<p><%= p.getUnitPrice() %>ì› </p>
+							<p><a role="button"  class="btn btn-secondary" href="product.jsp?id=<%=p.getProductId()%>">ìƒì„¸ ì •ë³´ &raquo;</a>   </p>
 						</div>
 					<%	
 				}			

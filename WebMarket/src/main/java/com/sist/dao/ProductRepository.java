@@ -6,25 +6,51 @@ import com.sist.vo.Product;
 
 public class ProductRepository {
 	
+	public static ProductRepository dao = null;
+	
+	//외부에게 ProductRepository 객체를 반환하는 메소드를 static으로 만듭니다.
+	public static ProductRepository getInstance() {
+		if(dao == null) {
+			dao = new ProductRepository();
+		}
+		return dao;
+	}
+	
+	
 	//상품목록을 담을 ArrayList를 맴버변수로 선언합니다.
 	private ArrayList<Product> listOfProducts =
 			new ArrayList<Product>();
 	
+	
+	
+	
+	//리스트에 상품을 등록하는 메소드
+	public void addProduct(Product product) {
+		listOfProducts.add(product);
+	}
+	
+	
+	
 	//상품 상세 정보를 반환하는 메소드
-	public Product getProductById(String productId) {
-		Product productById=null;
-		for(int i=0; i<listOfProducts.size();i++) {
-			Product product= listOfProducts.get(i);
-			if(product!=null && product.getProductId()!=null && product.getProductId().equals(productId)) {
-				productById=product;
+	public Product getProdutById(String productId) {
+		Product productById = null;
+		for(int i=0; i<listOfProducts.size(); i++) {
+			Product product = listOfProducts.get(i);
+			if(product != null &&
+				product.getProductId() != null &&
+				product.getProductId().equals(productId)) {
+				productById = product;
 				break;
 			}
-				
 		}
 		
 		return productById;
 	}
-	public ProductRepository() {
+	
+	
+	
+	//모든 상품목록을 반환하는 메소드
+	private ProductRepository() {
 		Product phone = new Product("P1234", "iPhone 6s", 800000);
 		phone.setDescription("4.7-inch, 1334X750 Renina HD display,"
 				+ "8-megapixel iSight Camera");

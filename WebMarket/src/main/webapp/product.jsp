@@ -1,12 +1,15 @@
+<%@page import="com.sist.dao.ProductRepository"%>
 <%@page import="com.sist.vo.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page errorPage="exceptionNoProductId.jsp" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -21,31 +24,38 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:useBean id="dao" class="com.sist.dao.ProductRepository"/>
+	
 	<%
-		String id= request.getParameter("id");
-		Product product=dao.getProductById(id);
+		ProductRepository dao = ProductRepository.getInstance();
+		String id = request.getParameter("id");
+		Product product = dao.getProdutById(id);
 	%>
 	
 	<jsp:include page="menu.jsp"/>
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">»óÇ° Á¤º¸</h1>
+			<h1 class="display-3">ìƒí’ˆ ì •ë³´</h1>
 		</div>
 	</div>
 	
 	<div class="container">
 		<div class="row">
+			<div class="col-md-5">
+				<img src="resources/images/<%=product.getFilename()%>"
+					style="width: 100%;">
+					
+			</div>
+		
 			<div class="col-md-6">
 				<h3><%=product.getPname() %></h3>
-				<p><%=product.getDescription() %></p>		
-				<p><b>»óÇ°ÄÚµå</b>: <span class="badge badge-danger"><%=product.getProductId()%></span></p>
-				<p><b>Á¦Á¶»ç</b>: <%=product.getManufacturer()%></p>
-				<p><b>ºÐ·ù</b>: <%=product.getCategory()%></p>
-				<p><b>Àç°í ¼ö·®</b>: <%=product.getUnitInStock()%></p>
-				<h3><%=product.getUnitPrice()%>¿ø</h3>
-				<p><a href="#" class="btn btn-info">»óÇ° ÁÖ¹® &raquo;</a></p>
-				<p><a href="products.jsp" class="btn btn-secondary">»óÇ° ¸ñ·Ï &raquo;</a></p>
+				<p><%=product.getDescription() %></p>
+				<p><b>ìƒí’ˆì½”ë“œ</b> : <span class="badge badge-danger"><%=product.getProductId() %></span></p>
+				<p><b>ì œì¡°ì‚¬</b> : <%=product.getManufacturer() %></p>
+				<p><b>ë¶„ë¥˜</b> : <%=product.getCategory() %></p>
+				<p><b>ìž¬ê³  ìˆ˜ëŸ‰</b> : <%=product.getUnitInStock() %></p>
+				<h3><%= product.getUnitPrice() %>ì›</h3>
+				<p><a href="#" class="btn btn-info">ìƒí’ˆ ì£¼ë¬¸ &raquo;</a>
+				<a href="products.jsp" class="btn btn-secondary">ìƒí’ˆ ëª©ë¡ &raquo;</a></p>
 			</div>
 		</div>
 	</div>
