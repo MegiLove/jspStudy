@@ -1,0 +1,34 @@
+서비스명		
+listGoods.do
+
+컨트롤러(서블릿)
+ListGoods	doGet
+	GoodsDAO listAll	ArrayList를 
+						request에 상태유지
+						
+View(jsp)
+	listGoods.jsp
+-----------------------------------------------------------
+insertGoods.do
+InsertGoods
+insertGoods.jsp
+
+
+insertGoodsOK.do
+InsertGoodsOK
+	GoodsDAO 	insertGoods
+				성공		listGoodsOK.jsp
+				실패		error.jsp
+
+-----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+Front Controller
+	==> 사용자의 모든 요청을 받아 들이는 Controller를 말하며
+			사용자가 어떠한 서비스를 원하는지 파악하여 
+			일처리를위한 모델을 결정하고 
+			처리된 결과에 따른 
+			viewPage를 결정하는 Controller를 말합니다.
+			
+	==> 사용자가 어떤 서비스를 요청하더라도
+			모든 요청에 대한 처리를 하는 
+			Controller 말합니다.	
+			
+----------------------------------------------------
+상품목록			listGoods.do
+상품등록 폼			insertGoods.do
+상품등록 submit	insertGoodsOK.do
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
