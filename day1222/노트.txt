@@ -1,0 +1,33 @@
+create table board(
+	no number primary key,
+	title varchar2(100),
+	writer varchar2(20),
+	pwd varchar2(20),
+	content varchar2(3000),
+	regdate date,
+	hit number,
+	fname varchar2(50),
+	fsize number
+);
+
+
+----------------------------------------------
+http://localhost:8080/day1222/listBoard.do
+
+insert into board(no,title,writer,regdate) values(1,'a','a',sysdate);
+insert into board(no,title,writer,regdate) values(2,'b','b',sysdate);
+
+
+
+http://localhost:8080/day1222/insertBoard.do
+
+
+
+
+
+
+
+
+
+
+
